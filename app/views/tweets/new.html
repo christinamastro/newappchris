@@ -1,1 +1,20 @@
-new.html
+<% flash.each do |key, value| %>
+	<div class="alert alert-<%=key %>">
+	</div>
+<% end %>
+
+<%= simple_form_for @tweet, url: tweets_path, method: 'post' do
+	|f| %>
+	<%=f.input "content" %>
+	<%=f.button "submit" %>
+<% end %>
+
+<b>Here are all the tweets ever made:</b><br /><br />
+
+<% @tweets.each do |tweet| %>
+		<%= tweet.content %>
+<% end %>
+
+<div style="color: blue; font-weight: bold">
+	we are in the div
+</div>
