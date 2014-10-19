@@ -17,6 +17,7 @@ class TweetsController < ApplicationController
 		@tweet = Tweet.new
 
 		@tweets = Tweet.all
+		
 		print "this tweet is " + @tweet.inspect.to_s
 
 		render 'new'
@@ -30,6 +31,14 @@ class TweetsController < ApplicationController
 
 	def index
 		@users = User.all.reject{|user| user == current_user}
+	end
+
+	def process_form_to_follow_user
+		@users = User.all.reject{|user| user == current_user}
+		@user = User.find(params["user"]["user_to_follow"])
+		current_user.follow(@user)
+
+		reder 'index'
 	end
 
 	def tweet_params
