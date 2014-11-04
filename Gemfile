@@ -10,6 +10,8 @@ end
 
 gem 'devise'
 
+gem 'carrierwave'
+
 gem 'simple_form'
 
 group :production do

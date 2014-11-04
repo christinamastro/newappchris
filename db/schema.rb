@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141019170324) do
+ActiveRecord::Schema.define(version: 20141019202646) do
 
   create_table "relationships", force: true do |t|
     t.integer  "follower_id"
@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 20141019170324) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    
   end
 
   add_index "tweets", ["user_id"], name: "index_tweets_on_user_id"
@@ -47,6 +46,7 @@ ActiveRecord::Schema.define(version: 20141019170324) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "picture"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
