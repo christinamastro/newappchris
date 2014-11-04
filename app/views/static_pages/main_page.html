@@ -1,1 +1,6 @@
-<%= image_tag current_user.picture  %>
+
+<% if user_signed_in? %>
+	<%= image_tag current_user.picture  %>
+<% else %>
+	You are on the main page and not signed in
+<% end %>
