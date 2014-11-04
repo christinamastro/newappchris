@@ -1,7 +1,11 @@
 class TweetsController < ApplicationController
+	
+	before_action :authenticate_user!
+
 	def new
 		@tweet = Tweet.new
 		@tweets = Tweet.all
+		@my_tweets = current_user.tweets
 	end
 
 	def create
@@ -17,6 +21,8 @@ class TweetsController < ApplicationController
 		@tweet = Tweet.new
 
 		@tweets = Tweet.all
+
+		@my_tweets = current_user.tweets
 
 		print "this tweet is " + @tweet.inspect.to_s
 

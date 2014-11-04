@@ -6,10 +6,17 @@
 	<%=f.button "submit" %>
 <% end %>
 
+<b>Here are my tweets:</b><br /><br />
+
+<% @my_tweets.each do |tweet| %>
+		<%= tweet.content %><br />
+<% end %>
+
+
 <b>Here are all the tweets ever made:</b><br /><br />
 
 <% @tweets.each do |tweet| %>
-		<%= tweet.content %>
+		<%= tweet.content %><br />
 <% end %>
 
 <div style="color: blue; font-weight: bold">
